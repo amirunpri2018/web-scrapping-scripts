@@ -1,0 +1,9 @@
+beautifulsoup4==4.6.0
+bs4==0.0.1
+get==1.0.2
+post==1.0.1
+public==1.0.2
+query-string==1.0.1
+request==1.0.1
+selenium==3.11.0
+termcolor==1.1.0

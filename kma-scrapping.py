@@ -37,8 +37,8 @@ def find_trs(table, csv_name):
 		mobile = tr.find('td', {'class': 'column-6'})
 
 		writerobj.writerow([name.text, name.text,blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,
-			blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,'* My Contacts','Mobile',mobile.text,'office',phone_o.text,
-			'home', phone_r.text, 'Work', blank,address.text, 'Work', unit.text])
+							blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,'* My Contacts','Mobile',mobile.text,'office',phone_o.text,
+							'home', phone_r.text, 'Work', blank,address.text, 'Work', unit.text])
 
 	csv_file.close()
 
