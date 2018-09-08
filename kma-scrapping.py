@@ -20,24 +20,26 @@ def find_trs(table, csv_name):
 	writerobj.writerow(['Name','Given Name','Additional Name','Family Name','Yomi Name','Given Name Yomi','Additional Name Yomi',
 						'Family Name Yomi','Name Prefix','Name Suffix','Initials','Nickname','Short Name','Maiden Name','Birthday',
 						'Gender','Location','Billing Information','Directory Server','Mileage','Occupation','Hobby','Sensitivity',
-						'Priority','Subject','Notes','Group Membership','Phone 1 - Type', 'Phone 1 - Value', 'Phone 2 - Type', 
+						'Priority','Subject','Notes','Group Membership','Phone 1 - Type', 'Phone 1 - Value', 'Phone 2 - Type',
 						'Phone 2 - Value','Phone 3 - Type','Phone 3 - Value', 'Address 1 - Type', 'Address 1 - Formatted', 'Address 1 - Street',
 						'Organization 1 - Type', 'Organization 1 - Name', ])
 	tbody = table.find('tbody')
 	trs = tbody.find_all('tr')
-	
+
 	print("Writing for %s" % csv_name)
-	
+
 	for tr in trs:
 		unit = tr.find('td', {'class': 'column-1'})
 		name = tr.find('td', {'class': 'column-2'})
+		name = 'Kishangarh ' + name.text 
 		address = tr.find('td', {'class': 'column-3'})
 		phone_o = tr.find('td', {'class': 'column-4'})
 		phone_r = tr.find('td', {'class': 'column-5'})
 		mobile = tr.find('td', {'class': 'column-6'})
+		mobile = '+91'+ mobile.text.strip()
 
-		writerobj.writerow([name.text, name.text,blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,
-							blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,'* My Contacts','Mobile',mobile.text,'office',phone_o.text,
+		writerobj.writerow([name, name,blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,
+							blank,blank,blank,blank,blank,blank,blank,blank,blank,blank,'* Kishangarh','Mobile', mobile,'office',phone_o.text,
 							'home', phone_r.text, 'Work', blank,address.text, 'Work', unit.text])
 
 	csv_file.close()
@@ -62,4 +64,3 @@ print("############### FOR EDGE CUTTING ###################")
 find_trs(edgecutting, 'edge_cutting.csv')
 print("############### FOR CRUSHER TABLE ###################")
 find_trs(crusher, 'crusher.csv')
-
